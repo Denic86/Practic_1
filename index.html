@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="css/style.css">
+	<title>Document</title>
+</head>
+
+<body>
+	<div class="wrapper">
+		<div class="page">
+			<button type="button" class="click">Click</button>
+		</div>
+	</div>
+</body>
+<!-- <script src="/js/script.js"></script> -->
+<script>
+	let button = document.querySelector('.click');
+		let back = document.querySelector('.page');
+		button.addEventListener("click", function () {
+			back.classList.toggle('_active');
+			changBack();
+		});
+		function changBack() {
+			let timeId = setTimeout(changBack, 2000)
+			if (back.classList.contains('_active')) {
+				back.style.background = changColor();
+				return timeId;
+				// setTimeout(changBack, 2000)
+			}
+			else if (!(back.classList.contains('_active'))) {
+				return clearTimeout(timeId);
+			}
+
+		}
+		function changColor() {
+			let background = `rgb(${red()}, ${green()}, ${blue()})`;
+			return background;
+			// return console.log(background)
+		}
+		function red() {
+			let colRed = Math.floor(Math.random() * (257));
+			return colRed;
+		}
+		function green() {
+			let colGree = Math.floor(Math.random() * (257));
+			return colGree;
+		}
+		function blue() {
+			let colBlue = Math.floor(Math.random() * (257));
+			return colBlue;
+		}
+
+</script>
+
+</html>
